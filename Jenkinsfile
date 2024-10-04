@@ -15,7 +15,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // Clone the code from Git
-                git branch: 'main', url: 'https://github.com/j2501/DeltaForce.git'
+                git branch: 'main', url: 'https://github.com/904027AJ/Mossad_repo.git'
             }
         }
 
@@ -31,7 +31,7 @@ pipeline {
                 withSonarQubeEnv('SonarQubeServer') {  // Replace with your SonarQube server name
                     sh '''
                         ${SONARQUBE_SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectKey=DeltaForce \
+                        -Dsonar.projectKey=Mossad \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=http://localhost:9000
                     '''
