@@ -51,7 +51,7 @@ pipeline {
         stage('Security Scan') {
             steps {
                 echo 'Running OWASP ZAP Scan...'
-                sh 'zap-baseline.py -t http://localhost:8080 -r zap_report.html'
+                sh '/usr/local/bin/zap-baseline.py -t http://localhost:8080 -r zap_report.html'
             }
         }
 
