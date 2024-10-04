@@ -16,6 +16,7 @@ pipeline {
             steps {
                 // Clone the code from Git
                 git branch: 'main', url: 'https://github.com/904027AJ/Mossad_repo.git'
+                echo 'Cloning from Git'
             }
         }
 
