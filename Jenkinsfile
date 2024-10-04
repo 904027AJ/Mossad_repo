@@ -34,6 +34,12 @@ pipeline {
                 echo 'checking environment'
             }
         }
+        stage('Check Python and Modules') {
+            steps {
+                sh 'python3 --version'
+                sh 'pip3 show python-owasp-zap-v2.4'
+            }
+        }
 
         // stage('SAST with SonarQube') {
         //     steps {
