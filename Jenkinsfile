@@ -7,9 +7,9 @@ pipeline {
     }
 
 
-    environment {
-            SONARQUBE_SCANNER_HOME = tool 'SonarQubeScanner'
-    }
+    // environment {
+    //         SONARQUBE_SCANNER_HOME = tool 'SonarQubeScanner'
+    // }
     
     stages {
         stage('Clone Repository') {
@@ -22,28 +22,28 @@ pipeline {
          stage('Compile') {
             steps {
                 // Compile the Java file
-                sh 'javac Assign.java'
+                sh 'javac Simple.java'
             }
         }
 
-        stage('SAST with SonarQube') {
-            steps {
-                withSonarQubeEnv('SonarQubeServer') {  // Replace with your SonarQube server name
-                    sh '''
-                        ${SONARQUBE_SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectKey=Mossad \
-                        -Dsonar.sources=. \
-                        -Dsonar.host.url=http://localhost:9000
-                    '''
-                }
-            }
-        }
+        // stage('SAST with SonarQube') {
+        //     steps {
+        //         withSonarQubeEnv('SonarQubeServer') {  // Replace with your SonarQube server name
+        //             sh '''
+        //                 ${SONARQUBE_SCANNER_HOME}/bin/sonar-scanner \
+        //                 -Dsonar.projectKey=Mossad \
+        //                 -Dsonar.sources=. \
+        //                 -Dsonar.host.url=http://localhost:9000
+        //             '''
+        //         }
+        //     }
+        // }
     
 
           stage('Run Application') {
             steps {
                 // Run the compiled Java class
-                sh 'java -cp . Assign'
+                sh 'java -cp . Simple'
             }
         }
 
