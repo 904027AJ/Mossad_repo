@@ -31,6 +31,7 @@ pipeline {
          stage('Check Environment') {
             steps{
                 sh 'printenv'
+                echo 'checking environment'
             }
         }
 
