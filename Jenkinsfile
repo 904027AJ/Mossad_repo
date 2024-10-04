@@ -6,7 +6,8 @@ pipeline {
         jdk 'jdk-17.0.12'  // Adjust to match your configuration
     }
 
-    enviornment {
+
+    environment {
             SONARQUBE_SCANNER_HOME = tool 'SonarQubeScanner'
     }
     
