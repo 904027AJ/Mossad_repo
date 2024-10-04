@@ -48,6 +48,13 @@ pipeline {
             }
         }
 
+        stage('Security Scan') {
+            steps {
+                echo 'Running OWASP ZAP Scan...'
+                sh 'zap-baseline.py -t http://localhost:8080 -r zap_report.html'
+            }
+        }
+
         
         stage('Test') {
             steps {
@@ -55,6 +62,7 @@ pipeline {
                 echo 'No tests to run for now'
             }
         }
+        
 }
      post {
         always {
