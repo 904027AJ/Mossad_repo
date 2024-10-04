@@ -7,9 +7,10 @@ pipeline {
     }
 
 
-    // environment {
-    //         SONARQUBE_SCANNER_HOME = tool 'SonarQubeScanner'
-    // }
+    environment {
+            PATH= "/usr/loca;/bin:${env.PATH}"
+            // SONARQUBE_SCANNER_HOME = tool 'SonarQubeScanner'
+    }
     
     stages {
         stage('Clone Repository') {
@@ -24,6 +25,12 @@ pipeline {
             steps {
                 // Compile the Java file
                 sh 'javac Simple.java'
+            }
+        }
+
+         stage('Check Environment') {
+            steps{
+                sh 'printenv'
             }
         }
 
@@ -47,6 +54,8 @@ pipeline {
                 sh 'java -cp . Simple'
             }
         }
+
+       
 
         stage('Security Scan') {
             steps {
