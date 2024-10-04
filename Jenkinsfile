@@ -37,7 +37,7 @@ pipeline {
                 }
             }
         }
-    }
+    
 
           stage('Run Application') {
             steps {
@@ -53,7 +53,7 @@ pipeline {
                 echo 'No tests to run for now'
             }
         }
-    }
+}
      post {
         always {
             // Clean up or send notifications, if required
